@@ -76,7 +76,17 @@ public class MergeSort {
 		for(int i=0 ; i < lenght; i++) {
 			System.out.print(a[i] + " ");
 		}	
+		Check(a, lenght);
 		long endTime = System.currentTimeMillis();		
 		System.out.println("\nAverage time :" +  (endTime - startTime) + "ms");
 	}
+	
+	public static void Check(int[] A, int len) {
+		for(int i=0; i < len - 1; i++) {
+			if (A[i] > A[i+1]) {
+				System.out.println("Some one of elemnts not consist by rule");	
+			}
+		}
+	}
+	 
 }
