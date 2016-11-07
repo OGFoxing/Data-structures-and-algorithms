@@ -31,18 +31,18 @@ public class Main {
 	}
 	
 	private static int binary_Search(int[] A, int len, int key) {
-		// TODO Auto-generated method stub
+
 		int mid;
-		int l = 1;
-		int r = len;
-		while (l <= r) {
-			mid = (l + r) / 2;
+		int left = 1;
+		int right = len;
+		while (left <= right) {
+			mid = (left + right) / 2;
 			if (A[mid] == key) 
 				return mid;
 			else if (key > A[mid]) 
-				l = mid + 1;
+				left = mid + 1;
 			else 
-				r = mid - 1;
+				right = mid - 1;
 		}
 		return -1;
 	}
