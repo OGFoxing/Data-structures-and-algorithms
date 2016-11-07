@@ -3,67 +3,72 @@ package kz.ogfox.merge;
 import java.util.Scanner;
 
 public class MergeSort {
-	private static int[] mergeSort(int[] a) {
-			if(a.length == 1)
-				return a;
+	
+	private static int[] mergeSort(int[] A) {
+			if(A.length == 1)
+				return A;
 			else 
 			{
 				/*find half of array -> array/2*/	
-				int n = (int)Math.floor(a.length/2);
+				int n = (int)Math.floor(A.length/2);
 				/*array division on 2 sides*/
-				int b[] = new int [n];
-				int c[] = new int [a.length -n];
-				for(int i=0; i < a.length; i++) {
+				int B[] = new int [n];
+				int C[] = new int [A.length - n];
+				for(int i = 0; i < A.length; i++) {
 					if (i < n) {
-						b[i]=a[i];
+						B[i] = A[i];
 					}
 					else {
-						c[i-n] = a[i];
+						C[i-n] = A[i];
 					}
 				}
-				b = mergeSort(b);
-				c = mergeSort(c);
-				a = Merge(b,c);
-			return a;	
+				B = mergeSort(B);
+				C = mergeSort(C);
+				A = Merge(B,C);
+			return A;	
 			}		
 }
 
 
-	private static int[] Merge(int[] a, int[] b) {
-			int c [] = new int [a.length + b.length];
-			int a1 = 0,b1 = 0;
-			for(int i=0; i < a.length + b.length ; i++) {
-				if(a1 == a.length) {
-					c[i] = b [b1];
-					++b1;
+	private static int[] Merge(int[] A, int[] B) {
+			int C [] = new int [A.length + B.length];
+			int A1 = 0,B1 = 0;
+			
+			for(int i = 0; i < A.length + B.length ; i++) {
+				if(A1 == A.length) {
+					C[i] = B [B1];
+					++B1;
 				}
 				else 
-					if(b1 == b.length) {
-						c[i] = a[a1];
-						++a1;
+					if(B1 == B.length) {
+						C[i] = A[A1];
+						++A1;
 					}
 				else
-					if(a[a1] > b[b1]) {
-						c[i] = b[b1];
-						++b1;
+					if(A[A1] > B[B1]) {
+						C[i] = B[B1];
+						++B1;
 					}
 				else
 					{
-						c[i] = a[a1];
-						++a1;
+						C[i] = A[A1];
+						++A1;
 					}
 			}
-			return c;	
+			return C;	
 }
 		
 	public void start() {
 		int lenght;
+		
 		Scanner scan = new Scanner(System.in);
 		lenght = scan.nextInt();
+		
 		int a[]; 
 		a = new int [lenght];
 		long startTime = System.currentTimeMillis();
 		System.out.println("Not ordered array:");
+		
 		for(int i=0; i < lenght; i++) {
 			a[i] = (int)(Math.random()*100);
 			System.out.print(a[i] + " ");
@@ -73,6 +78,7 @@ public class MergeSort {
 		
 		System.out.println();
 		System.out.println("Ordered array");
+		
 		for(int i=0 ; i < lenght; i++) {
 			System.out.print(a[i] + " ");
 		}	
@@ -82,6 +88,7 @@ public class MergeSort {
 	}
 	
 	public static void Check(int[] A, int len) {
+		
 		for(int i=0; i < len - 1; i++) {
 			if (A[i] > A[i+1]) {
 				System.out.println("Some one of elemnts not consist by rule");	

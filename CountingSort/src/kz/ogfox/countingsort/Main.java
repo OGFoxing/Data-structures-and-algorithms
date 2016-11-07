@@ -11,14 +11,17 @@ public class Main {
 		int A[];
 		long startTime = System.currentTimeMillis();
 		A = new int [len];
-		for(int i=0; i < len ; i++) {
+		
+		for(int i = 0; i < len ; i++) {
 			A[i] = (int)(Math.random()*len);
 			System.out.print(A[i] + " ");
 		}
+		/* k - max value of number*/
 		int k = len;
 		System.out.println();
 		counting_Sort(A,len,k);
-		for(int i=0; i < len ; i++ ) {
+		
+		for(int i = 0; i < len ; i++ ) {
 			System.out.print(A[i] + " ");
 		}
 		long endTime = System.currentTimeMillis();
@@ -30,6 +33,7 @@ public class Main {
 	}
 	
 	private static void Check(int[] A, int len) {
+		
 		for(int i=0; i < len - 1; i++) {
 			if (A[i] > A[i+1]) {
 				System.out.println("Some one of elemnts not consist by rule");	
@@ -43,6 +47,7 @@ public class Main {
 		C = new int [len];
 		B = new int [len];
 			System.out.println("K = " + k);
+		
 			for(int i=0; i <= len -1  ; i++) {
 				C[i] = 0;
 			}
